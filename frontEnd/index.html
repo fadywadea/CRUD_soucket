@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Create Retrieve Update Delete" />
+  <meta name="keywords" content="HTML5 CSS3 Bootstrap JS" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>CRUD</title>
+</head>
+
+<body class="body">
+
+  <section class="container my-4">
+    <div class="w-75 mx-auto px-4 py-2 border border-2 rounded-4">
+      <h1 class="text-center m-0 py-2">Product Management System</h1>
+      <div class="form-group mb-3">
+        <label for="productName" class="mb-2">productName</label>
+        <input type="text" class="form-control" id="productName" placeholder="Enter name" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="productPrice" class="mb-2">productPrice</label>
+        <input type="number" class="form-control" id="productPrice" placeholder="Enter price" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="productModel" class="mb-2">productModel</label>
+        <input type="text" class="form-control" id="productModel" placeholder="Enter model" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="productDesc" class="mb-2">productDesc</label>
+        <textarea name="productDesc" id="productDesc" class="form-control" placeholder="Description"></textarea>
+      </div>
+      <button onclick="addProduct()" class="btn btn-primary my-2" id="addProductBtn">Add product</button>
+      <button onclick="updateProduct()" class="btn btn-warning d-none my-2" id="updateProductBtn">Update
+        product</button>
+    </div>
+    <div class="w-75 mx-auto py-3">
+      <h2 class="h3">Search...</h2>
+      <input oninput="searchByName(this.value)" type="text" class="form-control" placeholder="Search here">
+    </div>
+    <table class="table w-75 text-center mx-auto">
+      <thead>
+        <th>Index</th>
+        <th>productName</th>
+        <th>productPrice</th>
+        <th>productModel</th>
+        <th>productDesc</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </thead>
+      <tbody id="tBody">
+      </tbody>
+    </table>
+  </section>
+  
+  <script src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+    integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+    crossorigin="anonymous"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

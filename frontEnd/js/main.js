@@ -123,6 +123,7 @@ function updateProduct() {
     desc: productDesc.value,
   }
   productList[index] = newProduct;
+  localStorage.setItem("productList", JSON.stringify(productList));
   display(productList);
   addProductBtn.classList.remove("d-none", "d-block");
   updateProductBtn.classList.replace("d-block", "d-none");

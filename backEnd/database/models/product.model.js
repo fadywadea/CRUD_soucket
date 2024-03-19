@@ -3,10 +3,22 @@
 import mongoose from "mongoose";
 
 const productSchema = new mongoose.Schema({
-  name: String,
-  price: Number,
-  models: String,
-  description: String,
+  name: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  model: {
+    type: String,
+    required: true,
+  },
+  desc: {
+    type: String,
+    required: true,
+  },
 }, { timestamps: true });
 
 export const productModel = mongoose.model('product', productSchema);

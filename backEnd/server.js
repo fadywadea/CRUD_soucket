@@ -39,7 +39,7 @@ io.on("connection", (socket) => {
       await productModel.insertMany(product) :
       socket.emit("invalid")
     const products = await productModel.find({});
-    socket.emit('displayProduct', products);
+    io.emit('displayProduct', products);
   });
 
   // Display products
@@ -52,7 +52,7 @@ io.on("connection", (socket) => {
   socket.on("deleteProduct", async (product) => {
     await productModel.findByIdAndDelete(product);
     const products = await productModel.find({});
-    socket.emit('displayProduct', products);
+    io.emit('displayProduct', products);
   });
 
   // Get Product
@@ -64,7 +64,7 @@ io.on("connection", (socket) => {
       const { name, price, model, desc } = newProduct;
       await productModel.findByIdAndUpdate({ _id: data }, { name, price, model, desc }, { new: true });
       const products = await productModel.find({});
-      socket.emit('displayProduct', products);
+      io.emit('displayProduct', products);
     });
   });
 });
